@@ -1,26 +1,64 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {IncrementButton, ResetButton} from './Increment';
+
+
+let start: number = 0
+let finish: number = 5
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [count, setCount] = useState(start)
+
+    function incrementCount() {
+        setCount(previousCount => previousCount + 1)
+
+
+
+
+
+    }
+
+    function resetCount() {
+        setCount(start)
+    }
+
+    return (
+        <div>
+            <h1>ДИСКЛЕЙМЕР:</h1>
+            <h1>Ты смотришь черно-белое кино.</h1>
+            <h1>И здесь ругаются матом!</h1>
+
+            <IncrementButton
+                incrementCount={incrementCount}
+                count={count}
+                resetCount={resetCount}
+            />
+            <ResetButton
+                incrementCount={incrementCount}
+                count={count}
+                resetCount={resetCount}
+
+            />
+        </div>
+
+
+    )
+
 }
 
+
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
