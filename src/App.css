@@ -1,3 +1,33 @@
-.BigScreen {
+.container-1{
+margin: auto;
+ border-style: solid;
+ padding: 20px;
+ width: 200px;
+ height:200px;
+ text-align: center;
+ background-color: aqua;
+ border-radius:20px;
+}
 
+.display-button{
+ text-align: center;
+ border: red;
+ withd:30px;
+
+
+ }
+
+.plus-minus-buttons{
+ text-align: center;
+ margin:50px;
+}
+
+.reset-button{
+ text-align: center;
+ margin:10px;
+ }
+
+.turn-number-red{
+ color:red;
+ font-size:50px
 }

@@ -1,52 +1,52 @@
 import React, {useState} from 'react';
 import './App.css';
-import {IncrementButton, ResetButton} from './Increment';
+import IncrementOrDecrementButton from "./Increment";
 
-
-let start: number = 0
-let finish: number = 5
 
 function App() {
 
-    const [count, setCount] = useState(start)
+    const [count, setCount] = useState<number>(0)
+
+    const maxValue = 5
+    const minValue = -5
 
     function incrementCount() {
-        setCount(previousCount => previousCount + 1)
+        if (count < maxValue) {
+            setCount(previousCount => previousCount + 1)
+        }
+        return
+        // else {
+        //     decrementCount()
+        // }
+    }
 
-
-
-
-
+    function decrementCount() {
+        if (count > minValue) {
+            setCount(previousCount => previousCount - 1)
+        }
+        return
+        // else {
+        //     return
+        // }
     }
 
     function resetCount() {
-        setCount(start)
+        setCount(0)
     }
 
     return (
         <div>
-            <h1>ДИСКЛЕЙМЕР:</h1>
-            <h1>Ты смотришь черно-белое кино.</h1>
-            <h1>И здесь ругаются матом!</h1>
-
-            <IncrementButton
+            <IncrementOrDecrementButton
                 incrementCount={incrementCount}
                 count={count}
                 resetCount={resetCount}
-            />
-            <ResetButton
-                incrementCount={incrementCount}
-                count={count}
-                resetCount={resetCount}
-
+                decrementCount={decrementCount}
+                maxValue={maxValue}
+                minValue={minValue}
             />
         </div>
-
-
     )
-
 }
-
 
 export default App;
 
